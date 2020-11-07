@@ -16,16 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Rutas de autentificación
+Auth::routes();
 
-Route::get('/test', function () {
-    $usuarios = array(
-       array('nombre' => 'alex', 'apellido' => 'diaz', 'telefono' => '8844594'),
-       array('nombre' => 'alex', 'apellido' => 'diaz', 'telefono' => '8844594'),
-       array('nombre' => 'alex', 'apellido' => 'diaz', 'telefono' => '8844594'),
-       array('nombre' => 'ddd', 'apellido' => 'dddd', 'telefono' => 'qweqwe'),
-    );
-
-    foreach ($usuarios as $usuario) {
-        echo $usuario['nombre'] . ' ' . $usuario['apellido'] . ' ' . $usuario['telefono'];
-    }
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
